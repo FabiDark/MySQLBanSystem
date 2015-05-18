@@ -1,0 +1,13 @@
+name: MySQLBanSystem
+version: 1.0
+author: WolfPlaysDE
+main: de.wolfplays.mysqlbansystem.main.Main
+
+commands:
+  permban:
+  tempban:
+  unban:
+  checkban:
+  addwarn:
+  removewarn:
+  checkwarn:
