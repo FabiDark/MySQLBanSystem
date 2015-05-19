@@ -48,7 +48,7 @@ public class FileManager {
 	}
 	public static void readConfig() {
 		FileConfiguration cfg = getConfigFileConfiguration();
-		Main.getInstance().prefix = ChatColor.translateAlternateColorCodes('&', cfg.getString("prefix") + "§r ");
+		Main.getInstance().prefix = ChatColor.translateAlternateColorCodes('&', cfg.getString("prefix") + "Â§r ");
 		WarnManager.maxwarns = Integer.valueOf(cfg.getString("maxwarns"));
 //		WarnManager.warnPermBan = cfg.getBoolean("warnpermban");
 //		WarnManager.warnBanTime = Integer.valueOf(cfg.getString("warnbantime"));

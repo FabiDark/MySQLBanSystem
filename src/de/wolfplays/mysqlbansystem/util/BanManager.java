@@ -29,7 +29,7 @@ public class BanManager {
 		long current = System.currentTimeMillis();
 		long end = getEnd(uuid);
 		if(end == -1) {
-			return "§4PERMANET";
+			return "Â§4PERMANET";
 		}
 		long millis = end - current;
 		
@@ -58,7 +58,7 @@ public class BanManager {
 			days-=7;
 			weeks++;
 		}
-		return "§e" + weeks + " Woche(n) " + days + " Tag(e) " + hours + " Stunde(n) " + minutes + " Minute(n) " + seconds + "Sekunde(n)";
+		return "Â§e" + weeks + " Woche(n) " + days + " Tag(e) " + hours + " Stunde(n) " + minutes + " Minute(n) " + seconds + "Sekunde(n)";
 	}
 	
 	// Ban a Player
@@ -79,13 +79,13 @@ public class BanManager {
 			public void run() {
 				if(Bukkit.getPlayer(playername) != null) {
 					Bukkit.getPlayer(playername).kickPlayer(
-							"§cDu wurdes von dem Server ausgeschlossen!" +
+							"Â§cDu wurdes von dem Server ausgeschlossen!" +
 							"\n" +
 							"\n" +
-							"§3Grund: §e" + getReason(uuid) +
+							"Â§3Grund: Â§e" + getReason(uuid) +
 							"\n" +
 							"\n" +
-							"§3Verbleibende Zeit: §e" + getRemaningTime(uuid));
+							"Â§3Verbleibende Zeit: Â§e" + getRemaningTime(uuid));
 				}
 			}
 		}, 10);

@@ -22,13 +22,13 @@ public class Listener_PlayerLoginEvent implements Listener {
 			long end = BanManager.getEnd(p.getUniqueId().toString());
 			if(current < end | end == -1) {
 				event.disallow(Result.KICK_BANNED, 
-						"§cDu wurdes von dem Server gebannt!" +
+						"Â§cDu wurdes von dem Server gebannt!" +
 						"\n" +
 						"\n" +
-						"§3Grund: §e" + BanManager.getReason(p.getUniqueId().toString()) +
+						"Â§3Grund: Â§e" + BanManager.getReason(p.getUniqueId().toString()) +
 						"\n" +
 						"\n" +
-						"§3Verbleibende Zeit: §e" + BanManager.getRemaningTime(p.getUniqueId().toString()));
+						"Â§3Verbleibende Zeit: Â§e" + BanManager.getRemaningTime(p.getUniqueId().toString()));
 			}
 		}
  	}

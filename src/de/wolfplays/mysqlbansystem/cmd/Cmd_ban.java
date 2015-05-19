@@ -35,11 +35,11 @@ public class Cmd_ban implements CommandExecutor {
 			if(args.length >= 2) {
 				String playername = args[0];
 				if(getUUID(playername) == null) {
-					cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7existiert nicht!");
+					cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7existiert nicht!");
 					return true;
 				}
 				if(BanManager.isBanned(getUUID(playername))) {
-					cs.sendMessage(prefix + "§cDieser Spieler ist bereits vom Server gebannt!");
+					cs.sendMessage(prefix + "Â§cDieser Spieler ist bereits vom Server gebannt!");
 					return true;
 				}
 				String reason = "";
@@ -47,10 +47,10 @@ public class Cmd_ban implements CommandExecutor {
 					reason += args[i] + " ";
 				}
 				BanManager.ban(args[0], getUUID(playername), reason, -1);
-				cs.sendMessage(prefix + "§7Du hast §e" + playername + " §4PERMANET §7von dem Server gebant!");
+				cs.sendMessage(prefix + "Â§7Du hast Â§e" + playername + " Â§4PERMANET Â§7von dem Server gebant!");
 				return true;
 			}
-			cs.sendMessage(prefix + "§c/permban <Spieler> <Grund>");
+			cs.sendMessage(prefix + "Â§c/permban <Spieler> <Grund>");
 			return true;
 		}
 		
@@ -60,22 +60,22 @@ public class Cmd_ban implements CommandExecutor {
 			if(args.length >= 4) {
 				String playername = args[0];
 				if(getUUID(playername) == null) {
-					cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7existiert nicht!");
+					cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7existiert nicht!");
 					return true;
 				}
 				if(BanManager.isBanned(getUUID(playername))) {
-					cs.sendMessage(prefix + "§cDieser Spieler ist bereits vom Server gebannt!");
+					cs.sendMessage(prefix + "Â§cDieser Spieler ist bereits vom Server gebannt!");
 					return true;
 				}
 				int value;
 				try {
 					value = Integer.valueOf(args[1]);
 				}catch(NumberFormatException e) {
-					cs.sendMessage(prefix + "§c<Zahlenwert> muss eine Zahl sein!");
+					cs.sendMessage(prefix + "Â§c<Zahlenwert> muss eine Zahl sein!");
 					return true;
 				}
 				if(value >= 500) {
-					cs.sendMessage(prefix + "§cDie Zahl mus unter 500 liegen!");
+					cs.sendMessage(prefix + "Â§cDie Zahl mus unter 500 liegen!");
 					return true;
 				}
 				String unitString = args[2];
@@ -88,13 +88,13 @@ public class Cmd_ban implements CommandExecutor {
 					BanUnit unit = BanUnit.getUnit(unitString);
 					long seconds = value * unit.getToSecond();
 					BanManager.ban(playername, getUUID(playername), reason, seconds);
-					cs.sendMessage("§7Du hast §e" + playername + " §7für §c" + value + unit.getName() + " §7vom Server gebannt!");
+					cs.sendMessage("Â§7Du hast Â§e" + playername + " Â§7fÂ§r Â§c" + value + unit.getName() + " Â§7vom Server gebannt!");
 					return true;
 				}
-				cs.sendMessage(prefix + "§cDiese <Einheit> existiert nicht!(sec/min/hour/day/week)");
+				cs.sendMessage(prefix + "Â§cDiese <Einheit> existiert nicht!(sec/min/hour/day/week)");
 				return true;
 			}
-			cs.sendMessage(prefix + "§c/tempban <Spieler> <Zahlenwert> <Einheit(sec/min/hour/day/week)> <Grund>");
+			cs.sendMessage(prefix + "Â§c/tempban <Spieler> <Zahlenwert> <Einheit(sec/min/hour/day/week)> <Grund>");
 			return true;
 		}
 		
@@ -104,18 +104,18 @@ public class Cmd_ban implements CommandExecutor {
 			if(args.length == 1) {
 				String playername = args[0];
 				if(getUUID(playername) == null) {
-					cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7existiert nicht!");
+					cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7existiert nicht!");
 					return true;
 				}
 				if(!(BanManager.isBanned(getUUID(playername)))) {
-					cs.sendMessage(prefix + "§cDieser Spieler ist nicht gebannt!");
+					cs.sendMessage(prefix + "Â§cDieser Spieler ist nicht gebannt!");
 					return true;
 				}
 				BanManager.unban(getUUID(playername));
-				cs.sendMessage(prefix + "§7Du hast §e" + playername + " §7entbannt!");
+				cs.sendMessage(prefix + "Â§7Du hast Â§e" + playername + " Â§7entbannt!");
 				return true;
 			}
-			cs.sendMessage(prefix + "§c/unban <Spieler>");
+			cs.sendMessage(prefix + "Â§c/unban <Spieler>");
 			return true;
 		}
 		
@@ -125,29 +125,29 @@ public class Cmd_ban implements CommandExecutor {
 			if(args.length == 1) {
 				if(args[0].equalsIgnoreCase("list")) {
 					if(BanManager.getBannedPlayers().isEmpty()) {
-						cs.sendMessage(prefix + "§cMomentan sind keine Spieler vom Server gebannt!");
+						cs.sendMessage(prefix + "Â§cMomentan sind keine Spieler vom Server gebannt!");
 						return true;
 					}
-					cs.sendMessage("§7---------[§6§lBan-Liste§r§7]---------");
+					cs.sendMessage("Â§7---------[Â§6Â§lBan-ListeÂ§rÂ§7]---------");
 					for(String allBanned : BanManager.getBannedPlayers()) {
-						cs.sendMessage(prefix + "§e" + allBanned + " §7(Grund: §r" + BanManager.getReason(getUUID(allBanned)) + "§7)");
+						cs.sendMessage(prefix + "Â§e" + allBanned + " Â§7(Grund: Â§r" + BanManager.getReason(getUUID(allBanned)) + "Â§7)");
 					}
 					return true;
 				}
 				String playername = args[0];
 				if(getUUID(playername) == null) {
-					cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7existiert nicht!");
+					cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7existiert nicht!");
 					return true;
 				}
-				cs.sendMessage(prefix + "§7---------[§6§lBan-Infos§r§7]---------");
-				cs.sendMessage(prefix + "§eName: §r" + playername);
-				cs.sendMessage(prefix + "§eGebannt: §r" + (BanManager.isBanned(getUUID(playername)) ? "§aJa!" : "§aNein!"));
+				cs.sendMessage(prefix + "Â§7---------[Â§6Â§lBan-InfosÂ§rÂ§7]---------");
+				cs.sendMessage(prefix + "Â§eName: Â§r" + playername);
+				cs.sendMessage(prefix + "Â§eGebannt: Â§r" + (BanManager.isBanned(getUUID(playername)) ? "Â§aJa!" : "Â§aNein!"));
 				if(!BanManager.isBanned(getUUID(playername))) return true;
-				cs.sendMessage(prefix + "§aGrund: §r" + BanManager.getReason(getUUID(playername)));
-				cs.sendMessage(prefix + "§aVerbleiben Zeit: §r" + BanManager.getRemaningTime(getUUID(playername)));
+				cs.sendMessage(prefix + "Â§aGrund: Â§r" + BanManager.getReason(getUUID(playername)));
+				cs.sendMessage(prefix + "Â§aVerbleiben Zeit: Â§r" + BanManager.getRemaningTime(getUUID(playername)));
 				return true;
 			}
-			cs.sendMessage(prefix + "§c/check <list/Spieler>");
+			cs.sendMessage(prefix + "Â§c/check <list/Spieler>");
 			return true;
 		}
 		

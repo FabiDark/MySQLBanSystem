@@ -39,11 +39,11 @@ public class Cmd_warn implements CommandExecutor {
 			if(args.length >= 2) {
 				String playername = args[0];
 				if(getUUID(playername) == null) {
-					cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7existiert nicht!");
+					cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7existiert nicht!");
 					return true;
 				}
 				if(WarnManager.getWarns(getUUID(playername).toString()) == WarnManager.maxwarns) {
-					cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7hat schon die maximale Anzahl an Warns!");
+					cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7hat schon die maximale Anzahl an Warns!");
 					return true;
 				}
 				String reason = "";
@@ -55,18 +55,18 @@ public class Cmd_warn implements CommandExecutor {
 					WarnManager.addPlayer(op.getName(), op.getUniqueId().toString());
 				}
 				WarnManager.addWarn(getUUID(playername).toString(), 1);
-				Main.getInstance().getServer().broadcastMessage("§7---------[§6§lWarn-Info§r§7]---------");
-				Main.getInstance().getServer().broadcastMessage("§e" + playername + " §7hat einen neuen Warn bekommen!");
-				Main.getInstance().getServer().broadcastMessage("§7Warns: §e" + WarnManager.getWarns(getUUID(playername).toString()) + "/" + WarnManager.maxwarns);
-				Main.getInstance().getServer().broadcastMessage("§7Grund: §e" + reason);
-				Main.getInstance().getServer().broadcastMessage("§7---------[§6§lWarn-Info§r§7]---------");
+				Main.getInstance().getServer().broadcastMessage("Â§7---------[Â§6Â§lWarn-InfoÂ§rÂ§7]---------");
+				Main.getInstance().getServer().broadcastMessage("Â§e" + playername + " Â§7hat einen neuen Warn bekommen!");
+				Main.getInstance().getServer().broadcastMessage("Â§7Warns: Â§e" + WarnManager.getWarns(getUUID(playername).toString()) + "/" + WarnManager.maxwarns);
+				Main.getInstance().getServer().broadcastMessage("Â§7Grund: Â§e" + reason);
+				Main.getInstance().getServer().broadcastMessage("Â§7---------[Â§6Â§lWarn-InfoÂ§rÂ§7]---------");
 				if(WarnManager.getWarns(getUUID(playername).toString()) == WarnManager.maxwarns) {
 					BanManager.ban(args[0], getUUID(playername).toString(), "Zu Viele Warns!", -1);
 					WarnManager.deletePlayer(getUUID(playername).toString());
 				}
 				return true;
 			}
-			cs.sendMessage(prefix + "§c/addwarn <Spieler> <Grund>");
+			cs.sendMessage(prefix + "Â§c/addwarn <Spieler> <Grund>");
 			return true;
 		}	
 		
@@ -76,18 +76,18 @@ public class Cmd_warn implements CommandExecutor {
 				if(args.length == 1) {
 					String playername = args[0];
 					if(getUUID(playername) == null) {
-						cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7existiert nicht!");
+						cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7existiert nicht!");
 						return true;
 					}
 					if(WarnManager.getWarns(getUUID(playername).toString()) ==  0 ) {
-						cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7hat schon 0 Warns!");
+						cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7hat schon 0 Warns!");
 						return true;
 					}
 					WarnManager.deleteWarns(getUUID(playername).toString(), 1);
-					cs.sendMessage("§7Du hast §e" + playername + " §71 Warn entfernt!");
+					cs.sendMessage("Â§7Du hast Â§e" + playername + " Â§71 Warn entfernt!");
 					return true;
 				}
-				cs.sendMessage(prefix + "§c/removewarn <Spieler>");
+				cs.sendMessage(prefix + "Â§c/removewarn <Spieler>");
 				return true;
 			}
 		
@@ -97,24 +97,24 @@ public class Cmd_warn implements CommandExecutor {
 				if(args.length == 1) {
 					String playername = args[0];
 					if(getUUID(playername) == null) {
-						cs.sendMessage(prefix + "§7Der Spieler §e" + playername + " §7existiert nicht!");
+						cs.sendMessage(prefix + "Â§7Der Spieler Â§e" + playername + " Â§7existiert nicht!");
 						return true;
 					}
-					cs.sendMessage(prefix + "§7---------[§6§lWarn-Infos§r§7]---------");
-					cs.sendMessage(prefix + "§7Name: §e" + playername);
-					cs.sendMessage(prefix + "§7Warns: §e" + WarnManager.getWarns(getUUID(playername).toString()));
+					cs.sendMessage(prefix + "Â§7---------[Â§6Â§lWarn-InfosÂ§rÂ§7]---------");
+					cs.sendMessage(prefix + "Â§7Name: Â§e" + playername);
+					cs.sendMessage(prefix + "Â§7Warns: Â§e" + WarnManager.getWarns(getUUID(playername).toString()));
 					return true;
 				}
-				cs.sendMessage(prefix + "§c/checkwarn <Spieler>");
+				cs.sendMessage(prefix + "Â§c/checkwarn <Spieler>");
 				return true;
 			} else {
 				if(args.length == 0) {
-					cs.sendMessage(prefix + "§7---------[§6§lWarn-Infos§r§7]---------");
-					cs.sendMessage(prefix + "§7Name: §e" + p.getName());
-					cs.sendMessage(prefix + "§7Warns: §e" + WarnManager.getWarns(p.getUniqueId().toString()));
+					cs.sendMessage(prefix + "Â§7---------[Â§6Â§lWarn-InfosÂ§rÂ§7]---------");
+					cs.sendMessage(prefix + "Â§7Name: Â§e" + p.getName());
+					cs.sendMessage(prefix + "Â§7Warns: Â§e" + WarnManager.getWarns(p.getUniqueId().toString()));
 					return true;
 				}
-				cs.sendMessage(prefix + "§c/checkwarn");
+				cs.sendMessage(prefix + "Â§c/checkwarn");
 				return true;
 			}
 		}

@@ -43,14 +43,14 @@ public class Main extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerLoginEvent(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoinEvent(), this);
 		
-		this.getServer().getConsoleSender().sendMessage(prefix + "Config Datei: " + (FileManager.getConfigFile().exists() ? "ง2erfolgreich geladen!" : "ง4nicht gefunden!"));
-		this.getServer().getConsoleSender().sendMessage(prefix + "MySQL Datei: " + (FileManager.getMySQLFile().exists() ? "ง2erfolgreich geladen!" : "ง4nicht gefunden!"));
+		this.getServer().getConsoleSender().sendMessage(prefix + "Config Datei: " + (FileManager.getConfigFile().exists() ? "ยง2erfolgreich geladen!" : "ยง4nicht gefunden!"));
+		this.getServer().getConsoleSender().sendMessage(prefix + "MySQL Datei: " + (FileManager.getMySQLFile().exists() ? "ยง2erfolgreich geladen!" : "ยง4nicht gefunden!"));
 		
-		this.getServer().getConsoleSender().sendMessage(prefix + " MySQL Verbindungsaufgebau: " + (MySQL.con == null ? "ง4ist fehlgeschlagen!" : "ง2war erfolgreich!"));
+		this.getServer().getConsoleSender().sendMessage(prefix + " MySQL Verbindungsaufgebau: " + (MySQL.con == null ? "ยง4ist fehlgeschlagen!" : "ยง2war erfolgreich!"));
 		if (MySQL.con == null) {
 	      Plugin plugin = getServer().getPluginManager().getPlugin("MySQLBanSystem");
 	      getServer().getPluginManager().disablePlugin(plugin);
-	      this.getServer().getConsoleSender().sendMessage(prefix + " ง4งlDAS PLUGIN WURDE DEAKTIVIRT, WEIL DIE MYSQL VERBINDUNG FEHLGESCHLAGEN IST!");
+	      this.getServer().getConsoleSender().sendMessage(prefix + " ยง4ยงlDAS PLUGIN WURDE DEAKTIVIRT, WEIL DIE MYSQL VERBINDUNG FEHLGESCHLAGEN IST!");
 	    }
 	}
 		
